@@ -1,11 +1,21 @@
-import './App.css';
+import React, { Component } from 'react';
+import axios from "axios";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      Hello
-    </div>
-  );
+const BASE_API_URL = 'http://localhost:5000/api/collections/'
+
+export default class App extends Component {
+
+
+  async getCollection() {
+    return await axios.get(BASE_API_URL);
+  }
+
+  render() {
+    return (
+      <div className="App">
+        Hello
+      </div>
+    );
+  }
 }
-
-export default App;
