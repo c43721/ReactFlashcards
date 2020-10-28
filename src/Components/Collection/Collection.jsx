@@ -17,7 +17,6 @@ export default class Collection extends Component {
     }
 
     setSelection(id) {
-        console.log(id)
         this.setState({
             selected: id
         })
