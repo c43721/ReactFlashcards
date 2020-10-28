@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import "./App.css";
+import Collection from '../Collection/Collection';
 
 const BASE_API_URL = 'http://localhost:5000/api/collections/'
 
 export default class App extends Component {
-
-
-  async getCollection() {
-    return await axios.get(BASE_API_URL);
+  async getCollections() {
+    const { data } = await axios.get(BASE_API_URL);
+    return data
   }
 
   render() {
     return (
       <div className="App">
-        Hello
+        <Collection getCollections={() => this.getCollections()} />
       </div>
     );
   }
