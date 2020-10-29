@@ -8,18 +8,11 @@ export default class Collection extends Component {
 
         this.state = {
             items: [],
-            selected: ''
         }
     }
 
     async componentDidMount() {
         await this.renderCollections()
-    }
-
-    setSelection(id) {
-        this.setState({
-            selected: id
-        })
     }
 
     async renderCollections() {
@@ -33,13 +26,15 @@ export default class Collection extends Component {
     render() {
         return (
             <div className="container">
-                {this.state.items.map(collection =>
-                    <Card
-                        selected={this.state.selected === collection._id}
-                        setSelection={this.setSelection.bind(this, collection._id)}
-                        key={collection._id}
-                        {...collection}
-                    />)}
+                {this.state.items.length ?
+                    (this.state.items.map(collection =>
+                        <Card
+                            selected={this.props.selection === collection._id}
+                            setSelection={this.props.setSelection.bind(this, collection._id)}
+                            key={collection._id}
+                            {...collection}
+                        />)
+                    ) : <div>Loading</div>}
             </div>
         );
     }
