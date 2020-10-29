@@ -19,7 +19,6 @@ export default class App extends Component {
     this.setState({
       selection: id
     })
-    // fafa
   }
 
   //TODO wrap in try/catch
@@ -34,16 +33,6 @@ export default class App extends Component {
     return data
   }
 
-  renderFlashcardContainer(collectionId) {
-    console.log(collectionId)
-    return (
-      <FlashcardContainer
-        selection={collectionId}
-        getFlashcards={this.getFlashcards.bind(this, collectionId)}
-      />
-    )
-  }
-
   render() {
     return (
       <div className="App">
@@ -52,9 +41,11 @@ export default class App extends Component {
           setSelection={this.setSelection.bind(this)}
           selection={this.state.selection}
         />
-
-        {this.state.selection.length ? this.renderFlashcardContainer() : null}
-
+        <FlashcardContainer
+          key={this.state.selection}
+          selection={this.state.selection}
+          getFlashcards={this.getFlashcards.bind(this)}
+        />
       </div>
     );
   }

@@ -5,7 +5,7 @@ export default class FlashcardContainer extends Component {
         super(props)
 
         this.state = {
-            flashcardList: []
+            flashcardList: [],
         }
     }
 
@@ -14,20 +14,18 @@ export default class FlashcardContainer extends Component {
     }
 
     async getFlashcardList() {
-        if (this.props.selection) {
-            const flashcards = await this.props.getFlashcards()
+        if (!this.props.selection.length) return
+        const flashcards = await this.props.getFlashcards(this.props.selection)
 
-            this.setState({
-                flashcardList: flashcards
-            })
-        }
+        this.setState({
+            flashcardList: flashcards,
+        })
     }
 
     render() {
-        if (!this.state.flashcardList.length) return null;
         return (
             <div className="container">
-                {this.state.flashcardList.map(flashcard =>
+                {this.props.selection.length > 0 && this.state.flashcardList.map(flashcard =>
                     <div key={flashcard._id} className="flashcard">{flashcard.word}</div>
                 )}
             </div>
