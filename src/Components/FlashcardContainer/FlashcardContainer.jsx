@@ -34,7 +34,7 @@ export default class FlashcardContainer extends Component {
               console={console.log(flashcard)}
               definition={flashcard.definition}
               length={this.state.flashcardList.length}
-              index={index + 1}
+              index={index}
             />
           ))}
       </div>
