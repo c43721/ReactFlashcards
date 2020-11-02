@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import Flashcard from "../Flashcard/Flashcard";
+import Form from "../Form/Form";
 
-export default class NewFlashcard extends Component() {
-  render() {
-    return (
-      <div>
-        <Flashcard />
-      </div>
-    );
-  }
+export default function NewFlashcard() {
+  return (
+    <div className='flashcard'>
+      <Form />
+    </div>
+  );
 }

@@ -1,10 +1,10 @@
 import React from "react";
-import { IoIosArrowForward } from "react-icons/io";
+import { VscAdd } from "react-icons/vsc";
 
 export default function Button(props) {
   return (
     <button className='btn'>
-      <IoIosArrowForward />
+      <VscAdd />
     </button>
   );
 }
