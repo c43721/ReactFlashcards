@@ -31,7 +31,6 @@ export default class FlashcardContainer extends Component {
             <Flashcard
               key={flashcard._id}
               word={flashcard.word}
-              console={console.log(flashcard)}
               definition={flashcard.definition}
               length={this.state.flashcardList.length}
               index={index}
