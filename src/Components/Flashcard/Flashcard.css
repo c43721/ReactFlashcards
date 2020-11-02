@@ -1,7 +1,6 @@
 .flashcard {
-  background-color: rgb(79, 192, 213);
+  background-color: #fff;
   padding: 20px;
   border-radius: 20px;
-  color: #fff;
   justify-content: center;
 }
