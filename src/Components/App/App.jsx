@@ -5,8 +5,8 @@ import Collection from "../Collection/Collection";
 import FlashcardContainer from "../FlashcardContainer/FlashcardContainer";
 import Flashcard from "../Flashcard/Flashcard";
 import { VscAdd } from "react-icons/vsc";
-import Word from "../Form/Word";
 import TextArea from "../Form/TextArea";
+import Word from "../Form/Word";
 
 const BASE_API_URL = "http://localhost:5000/api/collections/";
 
@@ -27,7 +27,7 @@ export default class App extends Component {
   }
 
   hideCard = () => {
-    const { showFlashcard } = this.state;
+    const { showFlashcard } = this.state.showFlashcard;
     this.setState({
       showFlashcard: !showFlashcard,
     });
@@ -65,6 +65,7 @@ export default class App extends Component {
           key={this.state.selection}
           selection={this.state.selection}
           getFlashcards={this.getFlashcards.bind(this)}
+          hideCard={this.hideCard}
         />
         <Word />
         <TextArea />

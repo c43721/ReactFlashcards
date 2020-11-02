@@ -10,16 +10,17 @@ class TextArea extends Component {
   }
 
   handleTextChange = event => {
-    this.setState = {
-      textInput: event.target.value,
-    };
-    console.log(this.handleTextChange);
+    this.setState(() => {
+      return {
+        text: event.target.value,
+      };
+    });
   };
 
   render() {
     return (
       <textarea
-        value={this.state.textInput}
+        value={this.state.text}
         onChange={this.handleTextChange}></textarea>
     );
   }

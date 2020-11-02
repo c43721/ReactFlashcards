@@ -10,9 +10,11 @@ class Form extends Component {
   }
 
   handleWordChange = event => {
-    this.setState = {
-      wordInput: event.target.value,
-    };
+    this.setState(() => {
+      return {
+        word: event.target.value,
+      };
+    });
   };
 
   render() {
@@ -20,7 +22,7 @@ class Form extends Component {
       <form>
         <input
           type='text'
-          value={this.state.wordInput}
+          value={this.state.word}
           onChange={this.handleWordChange}></input>
       </form>
     );
