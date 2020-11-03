@@ -2,5 +2,18 @@
   background-color: #fff;
   padding: 20px;
   border-radius: 20px;
-  justify-content: center;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 150ms;
+  transform: perspective(1000px) rotateY(var(--rotation), 0);
+}
+
+.flashcard.flipped {
+  
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

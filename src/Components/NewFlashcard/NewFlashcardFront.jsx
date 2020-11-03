@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 // import Flashcard from "../Flashcard/Flashcard";
 import Word from "../Form/Word";
 
