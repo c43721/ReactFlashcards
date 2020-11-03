@@ -22,7 +22,8 @@ export default class Flashcard extends Component {
     const currentCardIndex = this.props.index + 1; //+1 because .map starts with index 0
     return (
       <div className={`flashcard ${this.state.flipped ? 'flipped' : ''}`} onClick={() => this.flipCard()}>
-        {this.state.flipped ? <BackFlashcard definition={this.props.definition} currentCardIndex={currentCardIndex} lengthOfCards={lengthOfCards} /> : <FrontFlashcard word={this.props.word} />}
+        <FrontFlashcard className="front" word={this.props.word} />
+        <BackFlashcard className="back" definition={this.props.definition} currentCardIndex={currentCardIndex} lengthOfCards={lengthOfCards} />
       </div>
     )
   }
