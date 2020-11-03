@@ -12,7 +12,6 @@ export default class App extends Component {
 
     this.state = {
       selection: "",
-      showFlashcard: true,
     };
   }
 
@@ -21,13 +20,6 @@ export default class App extends Component {
       selection: id,
     });
   }
-
-  hideCard = () => {
-    const { showFlashcard } = this.state.showFlashcard;
-    this.setState({
-      showFlashcard: !showFlashcard,
-    });
-  };
 
   async getCollections() {
     try {
