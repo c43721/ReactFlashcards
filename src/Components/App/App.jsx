@@ -5,7 +5,8 @@ import Collection from "../Collection/Collection";
 import FlashcardContainer from "../FlashcardContainer/FlashcardContainer";
 import Flashcard from "../Flashcard/Flashcard";
 import { VscAdd } from "react-icons/vsc";
-import NewFlashcard from "../NewFlashcard/NewFlashcard";
+import NewFlashcardFront from "../NewFlashcard/NewFlashcardFront";
+import PostForm from "../Form/PostForm";
 
 const BASE_API_URL = "http://localhost:5000/api/collections/";
 
@@ -64,7 +65,7 @@ export default class App extends Component {
           getFlashcards={this.getFlashcards.bind(this)}
           hideCard={this.hideCard}
         />
-        <NewFlashcard />
+        <NewFlashcardFront />
       </div>
     );
   }

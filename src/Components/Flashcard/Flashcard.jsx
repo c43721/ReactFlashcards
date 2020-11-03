@@ -1,6 +1,5 @@
 import React from "react";
 import "./Flashcard.css";
-import Button from "../Button/Button";
 import { IoIosArrowForward } from "react-icons/io";
 
 export default function Flashcard(props) {

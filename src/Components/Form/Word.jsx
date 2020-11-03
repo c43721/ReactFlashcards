@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import Button from "../Button/Button";
 
-class Form extends Component {
+class Word extends Component {
   constructor(props) {
     super(props);
 
@@ -19,14 +20,17 @@ class Form extends Component {
 
   render() {
     return (
-      <form>
-        <input
-          type='text'
-          value={this.state.word}
-          onChange={this.handleWordChange}></input>
-      </form>
+      <div>
+        <form>
+          <input
+            type='text'
+            value={this.state.word}
+            onChange={this.handleWordChange}></input>
+        </form>
+        <Button />
+      </div>
     );
   }
 }
 
-export default Form;
+export default Word;
