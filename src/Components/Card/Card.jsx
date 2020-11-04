@@ -10,7 +10,7 @@ export function Card(props) {
       <div className='card-header'>{props.title}</div>
       <div>Cards: {props.cards.length}</div>
       <div>
-        <Button onClick={e => props.addCardHandler(e)} />
+        <Button addCard={props.cardAdded} />
       </div>
     </div>
   );

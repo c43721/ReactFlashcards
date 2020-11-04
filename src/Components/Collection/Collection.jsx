@@ -33,7 +33,7 @@ export default class Collection extends Component {
               setSelection={this.props.setSelection.bind(this, collection._id)}
               key={collection._id}
               {...collection}
-              addCardHandler={this.props.addCard}
+              cardAdded={this.props.addCard}
             />
           ))
         ) : (

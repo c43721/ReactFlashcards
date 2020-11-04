@@ -22,7 +22,9 @@ export default class App extends Component {
     });
   }
 
-  addCard(e) {
+  // Tried to make this render into the form component,
+  //but the form component already have a on
+  async addCard(e) {
     e.preventDefault();
     console.log("clicked");
   }
@@ -56,9 +58,15 @@ export default class App extends Component {
     }
   }
 
-  handleCollectionSubmit(e) {
+  async handleCollectionSubmit(e) {
     e.preventDefault();
     console.log("Collection submitted!");
+    try {
+      const { collection } = await axios.post(BASE_API_URL);
+      return collection;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   render() {
@@ -68,7 +76,7 @@ export default class App extends Component {
           getCollections={() => this.getCollections()}
           setSelection={this.setSelection.bind(this)}
           selection={this.state.selection}
-          addCardHandler={this.addCard.bind(this)}
+          addCard={this.addCard.bind(this)}
         />
         <FlashcardContainer
           key={this.state.selection}
