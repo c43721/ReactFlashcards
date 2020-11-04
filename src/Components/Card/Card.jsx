@@ -9,8 +9,8 @@ export function Card(props) {
       onClick={() => props.setSelection()}>
       <div className='card-header'>{props.title}</div>
       <div>Cards: {props.cards.length}</div>
-      <div>
-        <Button addCard={props.cardAdded} />
+      <div onClick={e => props.addCard(e)}>
+        <Button />
       </div>
     </div>
   );

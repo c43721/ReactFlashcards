@@ -4,6 +4,7 @@ import "./App.css";
 import Collection from "../Collection/Collection";
 import FlashcardContainer from "../FlashcardContainer/FlashcardContainer";
 import Form from "../Form/Form";
+import Button from "../Button/Button";
 
 const BASE_API_URL = "http://localhost:5000/api/collections/";
 
@@ -78,6 +79,7 @@ export default class App extends Component {
           selection={this.state.selection}
           addCard={this.addCard.bind(this)}
         />
+
         <FlashcardContainer
           key={this.state.selection}
           selection={this.state.selection}

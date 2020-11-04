@@ -13,11 +13,11 @@ export default function Form(props) {
 }
 
 function TextInput() {
-  return <input type='text' name='text' />;
+  return <input type='text' name='text' placeholder='Word' />;
 }
 
 function LabelInput() {
-  return <textarea name='definition'></textarea>;
+  return <textarea name='definition' placeholder='Definition'></textarea>;
 }
 
 function Submit() {
