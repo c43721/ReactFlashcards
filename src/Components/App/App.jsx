@@ -4,7 +4,6 @@ import "./App.css";
 import Collection from "../Collection/Collection";
 import FlashcardContainer from "../FlashcardContainer/FlashcardContainer";
 import Form from "../Form/Form";
-import Button from "../Button/Button";
 
 const BASE_API_URL = "http://localhost:5000/api/collections/";
 
@@ -14,7 +13,21 @@ export default class App extends Component {
 
     this.state = {
       selection: "",
+      flashcardFront: "",
+      flashcardBack: ""
     };
+  }
+
+  setFlashcardFront(newFront) {
+    this.setState({
+      flashcardFront: newFront
+    })
+  }
+
+  setFlashcardBack(newBack) {
+    this.setState({
+      flashcardBack: newBack
+    })
   }
 
   setSelection(id) {
@@ -27,7 +40,6 @@ export default class App extends Component {
   //but the form component already have a on
   async addCard(e) {
     e.preventDefault();
-    console.log("clicked");
   }
 
   async getCollections() {
@@ -49,22 +61,19 @@ export default class App extends Component {
   }
 
   async handleCardSubmit(e) {
-    e.preventDefault();
-    console.log("Card submitted!");
-    try {
-      const { word } = await axios.post(BASE_API_URL);
-      return word;
-    } catch (error) {
-      console.log(error);
+    if (!this.state.selection || this.state.selection === "") {
+      e.preventDefault();
+      return alert("You need to click on a collection first, please!");
     }
-  }
+    const postBody = {
+      word: this.state.flashcardFront,
+      definition: this.state.flashcardBack
+    }
 
-  async handleCollectionSubmit(e) {
-    e.preventDefault();
-    console.log("Collection submitted!");
+    const URL = BASE_API_URL + this.state.selection + "/cards";
+
     try {
-      const { collection } = await axios.post(BASE_API_URL);
-      return collection;
+      await axios.post(URL, postBody);
     } catch (error) {
       console.log(error);
     }
@@ -87,9 +96,11 @@ export default class App extends Component {
           hideCard={this.hideCard}
         />
 
-        <Form handleSubmit={this.handleCardSubmit.bind(this)} />
-
-        <Form handleSubmit={this.handleCollectionSubmit.bind(this)} />
+        <Form
+          handleSubmit={this.handleCardSubmit.bind(this)}
+          onFrontChange={this.setFlashcardFront.bind(this)}
+          onBackChange={this.setFlashcardBack.bind(this)}
+        />
       </div>
     );
   }
