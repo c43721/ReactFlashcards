@@ -1,12 +1,24 @@
 import React from "react";
-import Word from "./Word";
-import TextArea from "./TextArea";
+import Button from "../Button/Button";
 
-export default function Form() {
+export default function Form(props) {
   return (
-    <form>
-      <Word />
-      <TextArea />
+    <form onSubmit={(e) => props.handleSubmit(e)}>
+      <TextInput />
+      <TextInput />
+      <Submit />
     </form>
   );
+}
+
+function TextInput() {
+  return (
+    <input type="text" name="text" />
+  )
+}
+
+function Submit() {
+  return (
+    <Button displayString="Submit Form" />
+  )
 }

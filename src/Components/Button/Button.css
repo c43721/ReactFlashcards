@@ -1,7 +1,7 @@
 .btn {
   border-radius: 20px;
-  height: 40px;
-  width: 40px;
+  min-height: 40px;
+  min-width: 40px;
   display: block;
   border: none;
 }

@@ -5,7 +5,7 @@ import "./Button.css";
 export default function Button(props) {
   return (
     <button className='btn'>
-      <VscAdd />
+      {props.displayString ? props.displayString : <VscAdd />}
     </button>
   );
 }
