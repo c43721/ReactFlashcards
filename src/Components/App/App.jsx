@@ -96,11 +96,13 @@ export default class App extends Component {
           hideCard={this.hideCard}
         />
 
-        <Form
-          handleSubmit={this.handleCardSubmit.bind(this)}
-          onFrontChange={this.setFlashcardFront.bind(this)}
-          onBackChange={this.setFlashcardBack.bind(this)}
-        />
+        {this.state.selection.length ? (
+          <Form
+            handleSubmit={this.handleCardSubmit.bind(this)}
+            onFrontChange={this.setFlashcardFront.bind(this)}
+            onBackChange={this.setFlashcardBack.bind(this)}
+          />
+        ) : null}
       </div>
     );
   }
