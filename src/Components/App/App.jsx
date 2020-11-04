@@ -4,7 +4,6 @@ import "./App.css";
 import Collection from "../Collection/Collection";
 import FlashcardContainer from "../FlashcardContainer/FlashcardContainer";
 import Form from "../Form/Form";
-import Button from "../Button/Button";
 
 const BASE_API_URL = "http://localhost:5000/api/collections/";
 
@@ -21,6 +20,11 @@ export default class App extends Component {
     this.setState({
       selection: id,
     });
+  }
+
+  addCard(e) {
+    e.preventDefault();
+    console.log("clicked");
   }
 
   async getCollections() {
@@ -41,9 +45,15 @@ export default class App extends Component {
     }
   }
 
-  handleCardSubmit(e) {
+  async handleCardSubmit(e) {
     e.preventDefault();
     console.log("Card submitted!");
+    try {
+      const { word } = await axios.post(BASE_API_URL);
+      return word;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   handleCollectionSubmit(e) {
@@ -58,6 +68,7 @@ export default class App extends Component {
           getCollections={() => this.getCollections()}
           setSelection={this.setSelection.bind(this)}
           selection={this.state.selection}
+          addCardHandler={this.addCard.bind(this)}
         />
         <FlashcardContainer
           key={this.state.selection}
@@ -66,13 +77,9 @@ export default class App extends Component {
           hideCard={this.hideCard}
         />
 
-        <Form
-          handleSubmit={this.handleCardSubmit.bind(this)}
-        />
+        <Form handleSubmit={this.handleCardSubmit.bind(this)} />
 
-        <Form
-          handleSubmit={this.handleCollectionSubmit.bind(this)}
-        />
+        <Form handleSubmit={this.handleCollectionSubmit.bind(this)} />
       </div>
     );
   }
