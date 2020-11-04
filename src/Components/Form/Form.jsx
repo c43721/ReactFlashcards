@@ -6,7 +6,7 @@ export default function Form(props) {
   return (
     <form onSubmit={e => props.handleSubmit(e)}>
       <TextInput />
-      <TextInput />
+      <LabelInput />
       <Submit />
     </form>
   );
@@ -14,6 +14,10 @@ export default function Form(props) {
 
 function TextInput() {
   return <input type='text' name='text' />;
+}
+
+function LabelInput() {
+  return <textarea name='definition'></textarea>;
 }
 
 function Submit() {

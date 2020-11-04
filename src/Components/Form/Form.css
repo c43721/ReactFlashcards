@@ -1,0 +1,12 @@
+input {
+  display: flex;
+  min-width: 200px;
+  margin-bottom: 30px;
+}
+
+textarea {
+  display: flex;
+  min-width: 200px;
+  min-height: 100px;
+  margin-bottom: 30px;
+}
